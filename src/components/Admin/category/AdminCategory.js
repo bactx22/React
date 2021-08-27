@@ -13,10 +13,12 @@ const AdminCategory = (props) => {
       <table className="table table-bordered border-dark">
         <thead>
           <tr>
-            <th>#</th>
+            <th width={100}>#</th>
             <th width={200}>Name</th>
-            <th>Images</th>
-            <th width={200}>Action</th>
+            <th width={200}>Images</th>
+            <th width={200} className="text-center">
+              Action
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -33,9 +35,9 @@ const AdminCategory = (props) => {
                   width="50%"
                 />
               </td>
-              <td>
+              <td className="text-center">
                 <Link
-                  to={`/admin/category/${category._id}`}
+                  to={`/admin/category/edit/${category._id}`}
                   className="btn btn-primary btn-sm"
                 >
                   Update

@@ -18,7 +18,6 @@ const CategoryEdit = ({ onEditCate }) => {
     const getCategory = async () => {
       try {
         const { data } = await CategoryAPI.get(id);
-        console.log(data);
         setCategory(data);
         reset(data);
       } catch (error) {
@@ -30,7 +29,7 @@ const CategoryEdit = ({ onEditCate }) => {
   const onHandleSubmit = (data) => {
     const uploads = new FormData();
     uploads.append("name", data.name);
-    uploads.append("photo", data.image[0]);
+
     onEditCate(id, uploads);
     history.push("/admin/category");
   };
@@ -55,7 +54,7 @@ const CategoryEdit = ({ onEditCate }) => {
           <span className="text-danger mt-2">Bạn chưa điền thông tin</span>
         )}
       </div>
-      <div className=" mb-3">
+      {/* <div className=" mb-3">
         <input
           type="file"
           className="form-control"
@@ -66,7 +65,7 @@ const CategoryEdit = ({ onEditCate }) => {
         {errors.photo && (
           <span className="text-danger mt-2">This field is required</span>
         )}
-      </div>
+      </div> */}
       <button type="submit" className="btn btn-primary">
         Submit
       </button>

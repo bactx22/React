@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import ProductApi from "../../../api/ProductApi";
-const ProductEdit = ({ onEdit }) => {
+const ProductEdit = ({ onEdit, categories }) => {
   const {
     register,
     handleSubmit,
@@ -34,7 +34,9 @@ const ProductEdit = ({ onEdit }) => {
     uploads.append("name", data.name);
     uploads.append("price", data.price);
     uploads.append("description", data.description);
+    uploads.append("category", data.category);
     uploads.append("shipping", data.shipping);
+    uploads.append("sale", data.sale);
     onEdit(id, uploads);
     history.push("/admin/products");
   };
@@ -100,9 +102,29 @@ const ProductEdit = ({ onEdit }) => {
           <span className="text-danger mt-2">This field is required</span>
         )}
       </div>
+      <div className="form-floating">
+        <select
+          className="form-select"
+          id="floatingSelect"
+          name="categoryID"
+          defaultValue={product.category}
+          {...register("category")}
+        >
+          {categories.map((category, index) => (
+            <option key={index} value={`${category._id}`}>
+              {category.name}
+            </option>
+          ))}
+        </select>
+        <label htmlFor="floatingSelect">Danh mục sản phẩm</label>
+      </div>
       <div className="mb-3">
         <input type="checkbox" {...register("shipping")} />
         Shipping
+      </div>
+      <div className="mb-3">
+        <input type="checkbox" {...register("sale")} />
+        Sale
       </div>
       <div>
         <Link to="/admin/products">Quay lại</Link>

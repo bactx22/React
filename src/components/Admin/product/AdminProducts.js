@@ -41,10 +41,9 @@ const AdminProducts = (props) => {
                 />
               </td>
               <td>{product.quantity}</td>
-              {/* <td>{product.shipping ? "Còn hàng" : "Hết hàng"}</td> */}
               <td className="text-center">
                 <Link
-                  to={`/admin/product/${product._id}`}
+                  to={`/admin/product/edit/${product._id}`}
                   className="btn btn-primary btn-sm"
                 >
                   Update

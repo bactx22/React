@@ -17,6 +17,7 @@ const AdminNavBar = () => {
       <NavLink className="navbar-brand ps-3" to="/admin">
         ADMIN Dashboard
       </NavLink>
+
       {/* Sidebar Toggle*/}
       <button
         className="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0"
@@ -69,9 +70,9 @@ const AdminNavBar = () => {
                 </a>
               </li>
               <li>
-                <a className="dropdown-item" href="#!">
-                  Activity Log
-                </a>
+                <NavLink className="dropdown-item" to="/">
+                  Home
+                </NavLink>
               </li>
               <li>
                 <hr className="dropdown-divider" />

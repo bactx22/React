@@ -8,20 +8,7 @@ const ProductsAdd = ({ onAdd, categories }) => {
     formState: { errors },
   } = useForm();
   const history = useHistory();
-  // const [categories, setCategories] = useState([]);
 
-  // useEffect(() => {
-  //   const getCategory = async () => {
-  //     try {
-  //       const { data: categories } = await CategoryAPI.getAll();
-  //       setCategories(categories);
-  //       console.log(categories);
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   };
-  //   getCategory();
-  // });
   const onHandleSubmit = (data) => {
     const uploads = new FormData();
     uploads.append("name", data.name);

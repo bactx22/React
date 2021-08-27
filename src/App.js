@@ -28,10 +28,15 @@ const App = () => {
   };
 
   //products
-  useEffect(() => {
-    getCategory();
-    getProducts();
-  }, []);
+  useEffect(
+    () => {
+      //didmount
+      getCategory();
+      getProducts();
+    },
+    []
+    //arrayDependencies
+  );
 
   const onHandleAdd = async (product) => {
     try {
@@ -86,7 +91,6 @@ const App = () => {
     }
   };
   const onHandleEditCate = async (id, category) => {
-    console.log("category", category);
     try {
       const { data } = await CategoryAPI.update(id, category);
       const newCategory = categories.map((item) =>

@@ -43,7 +43,8 @@ const Albums = (props) => {
                       <span className="text-muted text-decoration-line-through tx">
                         $20.00
                       </span>
-                      -{product.price}
+                      <span> - </span>
+                      {product.price}
                     </div>
                   </div>
                   {/* Product actions*/}

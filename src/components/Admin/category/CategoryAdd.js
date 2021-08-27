@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
+import { isAuthenticated } from "../../../auth";
 const CategoryAdd = ({ onAddCate }) => {
   const {
     register,
@@ -8,6 +9,9 @@ const CategoryAdd = ({ onAddCate }) => {
     formState: { errors },
   } = useForm();
   const history = useHistory();
+
+  const { user, token } = isAuthenticated();
+
   const onHandleSubmit = (data) => {
     const uploads = new FormData();
     uploads.append("name", data.name);

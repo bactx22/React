@@ -37,7 +37,7 @@ const SlideBar = () => {
         </div>
         <div className="sb-sidenav-footer">
           <div className="small">Logged in as:</div>
-          {user.name}
+          {/* {user.name} */}
         </div>
       </nav>
     </div>

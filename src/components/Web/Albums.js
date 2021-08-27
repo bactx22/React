@@ -34,13 +34,17 @@ const Albums = (props) => {
                       <span className="text-muted text-decoration-line-through">
                         $20.00
                       </span>
-                      -{product.price}
+                      <span> - </span>
+                      {product.price}
                     </div>
                   </div>
                   {/* Product actions*/}
                   <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
                     <div className="text-center">
-                      <a className="btn btn-outline-dark mt-auto" href="#">
+                      <a
+                        className="btn btn-outline-dark mt-auto"
+                        href={`/product/${product._id}`}
+                      >
                         View options
                       </a>
                     </div>

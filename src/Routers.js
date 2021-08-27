@@ -25,45 +25,51 @@ import UserDashboard from "./components/Web/User/userDashboard";
 import PrivateRoute from "./auth/privateRoute";
 import AdminRoute from "./auth/adminRoute";
 import AdminDashboard from "./components/Web/User/adminDashboard";
+import ProductPage from "./components/Web/ProductPage";
 const Routers = (props) => {
   // console.log(props.products)
   return (
     <Router>
       <Switch>
-        <Route exact path="/admin/:path?/:path?">
+        <Route exact path="/admin/:path?/:path?/:path?">
           <AdminLayout>
             <Switch>
-              <AdminRoute exact path="/admin">
-                <Redirect to="/admin/dashboard" />
-              </AdminRoute>
+              <AdminRoute>
+                <Route exact path="/admin">
+                  <Redirect to="/admin/dashboard" />
+                </Route>
 
-              <AdminRoute exact path="/admin/dashboard">
-                <Dashboard />
+                <Route exact path="/admin/dashboard">
+                  <Dashboard />
+                </Route>
+
+                <Route exact path="/admin/products">
+                  <AdminProducts {...props} />
+                </Route>
+
+                <Route exact path="/admin/product/add">
+                  <ProductsAdd {...props} />
+                </Route>
+
+                <Route exact path="/admin/category">
+                  <AdminCategory {...props} />
+                </Route>
+
+                <Route exact path="/admin/category/add">
+                  <CategoryAdd {...props} />
+                </Route>
+
+                <Route exact path="/admin/category/edit/:id">
+                  <CategoryEdit {...props} />
+                </Route>
+
+                <Route exact path="/admin/product/edit/:id">
+                  <ProductEdit {...props} />
+                </Route>
               </AdminRoute>
-              <AdminRoute exact path="/admin/products">
-                <AdminProducts {...props} />
-              </AdminRoute>
-              <AdminRoute exact path="/admin/product/add">
-                <ProductsAdd {...props} />
-              </AdminRoute>
-              <AdminRoute exact path="/admin/category">
-                <AdminCategory {...props} />
-              </AdminRoute>
-              {/* <AdminRoute exact path="/admin/dashboard">
-                <AdminDashboard />
-              </AdminRoute> */}
-              <AdminRoute exact path="/admin/category/add">
-                <CategoryAdd {...props} />
-              </AdminRoute>
-              <AdminRoute exact path="/admin/category/:id">
-                <CategoryEdit {...props} />
-              </AdminRoute>
-              <AdminRoute exact path="/admin/product/:id">
-                <ProductEdit {...props} />
-              </AdminRoute>
-              <AdminRoute path="*">
+              <Route path="*">
                 <Page404 />
-              </AdminRoute>
+              </Route>
             </Switch>
           </AdminLayout>
         </Route>
@@ -79,6 +85,9 @@ const Routers = (props) => {
               <Route exact path="/blog">
                 <About />
               </Route>
+              {/* <Route exact path="/category/:id">
+                <ProductPage {...props} />
+              </Route> */}
               <Route exact path="/signin">
                 <SignIn />
               </Route>
@@ -86,15 +95,15 @@ const Routers = (props) => {
                 <SignUp />
               </Route>
               <Route path="/product/:id">
-                <ProductDetail />
+                <ProductDetail {...props} />
               </Route>
+
               <Route path="*">
                 <Page404 />
               </Route>
             </Switch>
           </WebsiteLayout>
         </Route>
-        <Route></Route>
       </Switch>
     </Router>
   );

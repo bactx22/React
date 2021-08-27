@@ -5,7 +5,7 @@ const Banner = () => {
         id="myCarousel"
         className="carousel slide"
         data-bs-ride="carousel"
-        style={{ marginTop: "80px" }}
+        // style={{ marginTop: "60px" }}
       >
         <div className="carousel-indicators">
           <button
